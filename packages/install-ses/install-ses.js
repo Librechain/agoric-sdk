@@ -1,9 +1,10 @@
 /* global lockdown */
-// 'lockdown' appears on the global as a side-effect of importing 'ses'
-import 'ses';
 
 // Install our HandledPromise global.
 import '@agoric/eventual-send/shim';
+
+// 'lockdown' appears on the global as a side-effect of importing 'ses'
+import 'ses';
 
 // we need to enable Math.random as a workaround for 'brace-expansion' module
 // (dep chain: cosmic-swingset/ag-solo->temp->glob->minimatch->brace-expansion)
