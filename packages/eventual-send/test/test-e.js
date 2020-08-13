@@ -1,6 +1,6 @@
 import '@agoric/install-ses';
 import test from 'tape-promise/tape';
-import { E, HandledPromise } from '../src/index';
+import { E, HandledPromise } from '../shim';
 
 test('E reexports', async t => {
   try {

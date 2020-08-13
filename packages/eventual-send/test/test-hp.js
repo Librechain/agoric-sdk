@@ -1,5 +1,5 @@
 import test from 'tape-promise/tape';
-import { HandledPromise } from '../src/index';
+import { HandledPromise } from '../shim';
 
 test('chained properties', async t => {
   try {

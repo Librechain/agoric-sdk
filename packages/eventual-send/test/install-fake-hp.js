@@ -8,10 +8,6 @@ export const hpControl = {
   },
 };
 
-if (globalThis.HandledPromise) {
-  throw Error(`Don't know how to cope with already having HandledPromise`);
-}
-
 const fake = {
   applyMethod(p, prop, args) {
     logs.push(['applyMethod', p, prop, args]);

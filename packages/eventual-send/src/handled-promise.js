@@ -1,6 +1,4 @@
-/* global harden HandledPromise */
-
-import makeE from './E';
+/* global harden */
 
 const {
   defineProperties,
@@ -12,22 +10,6 @@ const {
 
 const { prototype: promiseProto } = Promise;
 const { then: originalThen } = promiseProto;
-
-// 'E' and 'HandledPromise' are exports of the module
-
-// For now:
-// import { HandledPromise, E } from '@agoric/eventual-send';
-// ...
-
-const hp =
-  typeof HandledPromise === 'undefined'
-    ? // eslint-disable-next-line no-use-before-define
-      makeHandledPromise(Promise)
-    : harden(HandledPromise);
-
-// Provide our exports.
-export { hp as HandledPromise };
-export const E = makeE(hp);
 
 // the following method (makeHandledPromise) is part
 // of the shim, and will not be exported by the module once the feature
@@ -45,7 +27,7 @@ export const E = makeE(hp);
  *
  * @return {typeof HandledPromise} Handled promise
  */
-export function makeHandledPromise(Promise) {
+export default function makeHandledPromise(Promise) {
   // xs doesn't support WeakMap in pre-loaded closures
   // aka "vetted customization code"
   let presenceToHandler;
